@@ -19,7 +19,7 @@ body{
     align-items: center;/*alinhamento vertical dos itens dento da caixa = cima, baixo, meio*/
     min-height: 100vh;/*vh:viewport height-> janela de vizualizção
     garante que a altura mínima do corpo do site seja equivalente ao total da janela de vizu*/    
-    background: url('../../assets/fundo.jpg') no-repeat; /*cor fundo*/
+    background: url('../assets/fundo.jpg') no-repeat; /*cor fundo*/
     background-size: cover;
     background-position: center;
 }
