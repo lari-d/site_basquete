@@ -26,7 +26,7 @@ body{
 
 /*estilizando os elementos da classse wrapper: caixa de login*/
 .wrapper{ 
-    width: 420px; /*largura da caixa*/
+    width: 700px; /*largura da caixa*/
     background: transparent; /*cor do fundo da caixa*/
     border: 2px solid rgba(255, 255, 255, .1);
     backdrop-filter: blur(20px);
