@@ -9,36 +9,55 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="" method="post">
+        <form action="" method="post" id="signup-form">
             <h1>Criar conta</h1>
             <div class="input-box">
-                <input type="text" placeholder="Nome" required>
+                <input type="text" id="nome" name="Nome" placeholder="Nome" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <input type="email" placeholder="Email" required>
+                <input type="email" id="email" name="Email" placeholder="Email" required>
                 <i class='bx bxs-envelope'></i>
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Número de telefone" required>
+                <input type="text" id="telefone" name="Número de telefone" placeholder="Número de telefone" required>
                 <i class='bx bxs-phone'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Senha" required>
+                <input type="password" id="senha" name="Senha" placeholder="Senha" required>
                 <i class="bx bxs-lock-alt"></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Confirme sua senha" required>
+                <input type="password" id="confirmar-senha" name="Confirme sua senha" placeholder="Confirme sua senha" required>
                 <i class="bx bxs-lock-alt"></i>
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Altura" required>
+                <input type="text" id="altura" name="Altura" placeholder="Altura" required>
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Posição" required>
+                <input type="text" id="posicao" name="Posição" placeholder="Posição" required>
             </div>
             <button type="submit" class="btn">Criar Conta</button>
         </form>
     </div>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit',function(event){
+            
+            //Validação de senha
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmar-senha').value;
+
+            if (senha != confirmarSenha){
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            console.log('Dados do formulário são válidos. Redirecionando...');
+
+
+            window.location.href = '../tela_principal/profile.html'
+        });
+
+    </script>
 </body>
 </html>
