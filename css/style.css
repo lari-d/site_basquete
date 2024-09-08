@@ -34,12 +34,15 @@ body{
     color: white;/*cor das escritas e dos bonequinhos*/
     border-radius: 10px;
     padding: 30px 40px;
+    display: flex;
+    gap:20px;
 }
 
 /*estilizando o login: h1*/
 .wrapper h1{
     font-size: 36px; /*tam da fonte*/
     text-align: center; /*Login fica no centro da caixa*/
+    
 }
 
 /*estilizando dentro da caixa*/
@@ -145,3 +148,21 @@ body{
     text-decoration: underline;
 }
 
+/*tabela da página games*/
+.form-container, .table-container{
+    flex: 1;
+}
+
+table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}

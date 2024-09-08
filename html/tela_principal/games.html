@@ -27,6 +27,7 @@
                     <option value="local 7">Bosue Campo Mourão</option>
                     <option value="local 8">Quadra da Copel</option>
                     <option value="local 9">SESC CM</option>
+                </datalist>
             </div> 
             <div class="input-box">
                 <label for="date">Escolha uma data:</label> <br>
@@ -38,7 +39,7 @@
             </div>
             <div class="input-box">
                 <label for="column1">Jogo</label><br>
-                <select name="column1" id="column1" required>
+                <select name="column1" id="column1" onchange="habilitarLinhas" required> 
                     <option value="" disabled selected>Tipo de Jogo</option>
                     <option value="">3x3</option>
                     <option value="">5x5</option>
@@ -61,10 +62,39 @@
                     <option value="">Misto</option>
                 </select>
             </div>
-            <div class="input-box">
-                <label for="column1">Jogadores</label><br>
-                <input type="text" placeholder="Time A" required>
-            </div>
+            <h2>Lista de Jogadores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time A</th>
+                        <th>Time B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text"  name="nome1A" placeholder="Nome do Jogador" required></td>
+                        <td><input type="text" name="nome1B" placeholder="Nome do Jogador" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="nome1A" placeholder="Nome do Jogador" required></td>
+                        <td><input type="text" name="nome1B" placeholder="Nome do Jogador" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="nome1A" placeholder="Nome do Jogador" required></td>
+                        <td><input type="text" name="nome1B" placeholder="Nome do Jogador" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="timeA4" name="nome1A" placeholder="Nome do Jogador" ></td>
+                        <td><input type="text" id="timeB4"  name="nome1B" placeholder="Nome do Jogador" ></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="timeA5" name="nome1A" placeholder="Nome do Jogador" ></td>
+                        <td><input type="text" id="timeB5" name="nome1B" placeholder="Nome do Jogador" ></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <button type="submit" class="btn">Entrar</button>
         </form>
         <script>
             //passa o valor de date, do html, para dateInput, do JS, para poder modificá-la
@@ -72,6 +102,7 @@
             var today = new Date().toISOString().split('T')[0]; //obter a data atual no formato aceito por min:YYYY-MM-DD 
             //define o valor mínimo como a data atual (não pode macar jogo para uma data que já passou)
             dateInput.setAttribute('min',today);
+        
         </script>
     </div>
 </body>
