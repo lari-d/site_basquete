@@ -166,3 +166,10 @@ th, td {
     padding: 10px;
     text-align: left;
 }
+
+/*para tela de login:*/
+.remember-forgot {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px; /* Espaço entre os itens */
+}

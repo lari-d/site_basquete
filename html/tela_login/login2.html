@@ -22,14 +22,16 @@
             <div class="remember-forgot">
                 <label>
                     <input type="checkbox"> Lembrar de mim 
-                </label>
+                </label> 
+                <br>
                 <label>
-                    <input type="checkbox"> Jogador 
-                </label>
+                    <input type="radio" name="perfil" id="jogador" value="jogador"> Jogador 
+                </label> 
+                <br>
                 <label>
-                    <input type="checkbox"> Administrador
-                </label>
-                <a href="../esqueceu a senha/senha.html">Esqueceu a senha?</a>
+                    <input type="radio" name="perfil" id="administrador" value="administrador"> Administrador
+                </label><br>
+                <a href="../esqueceu_a_senha/senha.html">Esqueceu a senha?</a>
             </div>
             <button type="submit" class="btn">Entrar</button>
             <div class="register-link">
@@ -37,6 +39,13 @@
                     <a href="../cadastro/cadastro.html">Criar conta</a>
                 </p>
             </div>
+            <script>
+                document.getElementById('loginForm').addEventListener('submit',function(event){
+                    event.preventDefault(); 
+                    window.location.assign('../tela_principal/inicial.html');
+                });
+                
+            </script>
         </form>
     </div>
 </body>
