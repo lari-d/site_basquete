@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Partidas</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Lista de Partidas</h1>
+        <table id="partidas-table">
+            <thead>
+                <tr>
+                    <th>Nome do Jogo</th>
+                    <th>Local</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Tipo de Jogo</th>
+                    <th>Tipo de Quadra</th>
+                    <th>Sexo dos Jogadores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linhas serão inseridas aqui pelo js -->
+            </tbody>
+        </table>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('/partidas/json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const tableBody = document.querySelector('#partidas-table tbody');
+                        tableBody.innerHTML = ''; // Limpa o conteúdo atual
+
+                        data.forEach(partida => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${partida.nome_jogo}</td>
+                                <td>${partida.local}</td>
+                                <td>${partida.data}</td>
+                                <td>${partida.hora}</td>
+                                <td>${partida.tipo_jogo}</td>
+                                <td>${partida.tipo_quadra}</td>
+                                <td>${partida.sexo_jogadores}</td>
+                            `;
+                            tableBody.appendChild(row);
+                        });
+                    })
+                    .catch(error => console.error('Erro ao carregar partidas:', error));
+            });
+        </script>
+    </div>
+</body>
+</html>

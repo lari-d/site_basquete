@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Aluguel de Quadra</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form method="POST" id="criar-quadr-form">
+            <h1>Criar Aluguel de Quadra</h1>
+            <div class="input-box">
+                <input type="text" id="quadra" name="quadra" placeholder="Quadra" required>
+            </div>
+            <div class="input-box">
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            <div class="input-box">
+                <label for="hora_inicio">Hora Início:</label>
+                <input type="time" id="hora_inicio" name="hora_inicio" required>
+            </div>
+            <div class="input-box">
+                <label for="hora_fim">Hora Fim:</label>
+                <input type="time" id="hora_fim" name="hora_fim" required>
+            </div>
+            <div class="input-box">
+                <input type="text" id="nome" name="nome_responsavel" placeholder="Nome do Responsável" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <button type="submit" class="btn">Salvar</button>
+        </form>
+        <script>
+            document.getElementById('criar-quadr-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede o comportamento padrão do formulário
+                const formData = new FormData(this);
+
+                fetch('/api/quadras/criar/', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Quadra criada com sucesso!');
+                    // Redirecionar ou atualizar a página conforme necessário
+                })
+                .catch(error => console.error('Error creating quadra:', error));
+            });
+        </script>
+    </div>
+</body>
+</html>

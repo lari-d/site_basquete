@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect 
+from django.http import JsonResponse
 from .models import Criar_Partida
 from .forms import PartidaForm 
 
@@ -20,3 +21,9 @@ def criar_partida(request):
         form = PartidaForm() #mostra um formulário vazio p/ usuário
 
     return render(request, 'criar_time/games.html', {'form': form})
+
+#para retornar uma lista dinâmica de partidas criadas com json
+def listar_partidas_json(request):
+    partidas =Criar_Partida.objects.all()
+    dados = list(partidas.values('nome_jogo', 'local', 'data', 'hora', 'tipo_jogo', 'tipo_quadra', 'sexo_jogadores'))
+    return JsonResponse(dados, safe=False)

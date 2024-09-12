@@ -11,7 +11,7 @@ class Local(models.Model):
 class Criar_Partida(models.Model):
     name_jogo=models.CharField(max_lenght=200)
     local = models.ForeignKey(Local, on_delete=models.CASCADE) #chave estrangeira
-    data=models.DataField()
+    data=models.DateField()
     hora = models.TimeField()
     tipo_jogo = models.CharField(max_length=10, choices=[('3x3', '3,3'), ('5x5', '5x5')])#primeiro valor é salvo no bd e segundo aparece para o usuário
     tipo_quadra = models.CharField(max_length=10, choices=[('Fechada', 'Fechada'), ('Aberta', 'Aberta')])

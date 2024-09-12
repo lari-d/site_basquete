@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Quadras</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Quadras Disponíveis</h1>
+        <table id="quadras-table">
+            <thead>
+                <tr>
+                    <th>Quadra</th>
+                    <th>Data</th>
+                    <th>Hora Início</th>
+                    <th>Hora Fim</th>
+                    <th>Nome do Responsável</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os dados serão inseridos aqui via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/quadras/')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('#quadras-table tbody');
+                    data.forEach(aluguel => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${aluguel.quadra}</td>
+                            <td>${aluguel.data}</td>
+                            <td>${aluguel.hora_inicio}</td>
+                            <td>${aluguel.hora_fim}</td>
+                            <td>${aluguel.nome_responsavel}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+</body>
+</html>

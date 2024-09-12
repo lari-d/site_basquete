@@ -16,9 +16,9 @@ class Quadra(models.Model):
     def __str__(self):
         return f'{self.local} - {self.tipo_quadra}'
     
-class Aluguel_Quadra(models.Model):
+class AluguelQuadra(models.Model):
     quadra=models.ForeignKey(Quadra, on_delete=models.CASCADE)
-    data=models.DataField()    
+    data=models.DateField()    
     hora_inicio = models.TimeField()
     hora_fim = models.TimeField()
     nome_responsavel = models.CharField(max_length=200)
