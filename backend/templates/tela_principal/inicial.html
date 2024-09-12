@@ -13,15 +13,16 @@
         </div>
         <nav>
             <ul>
-                <li><a href="../tela_principal/profile.html">Profile</a></li>
-                <li><a href="../criar_time/games.html">Games</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a href="{% url 'pagina_inicial' %}">Home</a></li>
+                <li><a href="{% url 'criar_partida' %}">Criar Partida</a></li>
+                <li><a href="{% url 'listar_partidas' %}">Listar Partidas</a></li>
+                <!---tem que colocar o logout aqui. eu tirei pq tava dando erro, mesmo comentado-->
             </ul>
         </nav>
     </header>
     <main>
         <section id="welcome">
-            <h2>Welcome, [User]!</h2>
+            <h2>Welcome, {% if user.is_authenticated %}{{ user.username }}{% else %}Anônimo{% endif %}!</h2>
             <p>Get ready to hit the court and track your progress with Hoops.</p>
         </section>
         <section id="games">

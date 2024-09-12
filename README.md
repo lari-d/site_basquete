@@ -1,4 +1,30 @@
 # great-basketball-app
+## Pendências:
+- Uso do MySQL 8.0.0+ AAAAAAAAAAAAAAAAAAAAAA lari eu uso mysql, edita se tu usa postgre
+- Uso de Python
+
+## Django:
+- Para instalar o Django/usar o projeto, você precisa:
+python -m pip install Django
+python -m pip install mysqlclient
+
+- Para criar as tabelas do projeto e executá-lo, você precisa, dentro da mesma pasta que possui "manage.py":
+python manage.py migrate
+python manage.py runserver
+
+## Banco de dados:
+- Configure o banco de dados em backend/hoop/settings.py:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'trabalho_lari',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306'
+    }
+}
+
 histórias de usuário:
 
 1- Eu, como um jogador profissional de basquete do time A, preciso de um site que me forneça as informações dos próximos jogos e resumos dos jogos antigos. Além disso, preciso conseguir realizar meu cadastro com CPF, número de celular, email e nome completo.

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Partidas</title>
+</head>
+<body>
+    <h1>Lista de Partidas</h1>
+    <ul>
+        {% for partida in partidas %}
+            <li>{{ partida.name_jogo }} - {{ partida.local }} - {{ partida.data }} - {{ partida.hora }} - {{ partida.tipo_jogo }} - {{ partida.tipo_quadra }} - {{ partida.sexo_jogadores }}</li>
+        {% empty %}
+            <li>Nenhuma partida encontrada.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

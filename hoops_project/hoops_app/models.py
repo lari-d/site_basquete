@@ -25,7 +25,7 @@ class Usuario(AbstractUser):  # Herda de AbstractUser para utilizar o sistema de
     data_nascimento = models.DateField(null=True, blank=True)
     genero = models.CharField(max_length=10, choices=[('M', 'Masculino'), ('F', 'Feminino'), ('Outro', 'Outro')], blank=True)
 
-    class meta:
+    class Meta:
         verbose_name = 'Usuário'
         verbose_name_plural = 'Usuários'
 

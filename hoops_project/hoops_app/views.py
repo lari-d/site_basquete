@@ -13,17 +13,20 @@ def login_views(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
-        
+        print(f"Attempting login for: {username}")
+
         # Autentica o usuário
         user = authenticate(request, username=username, password=password)
+        print(f"Authenticated user: {user}")
 
         if user is not None:
-            # Usuário autenticado com sucesso, faça login
+            print("Login successful")
             login(request, user)
-            return redirect('html/tela_principal/inicial.html')  # Redireciona para a página principal
+            return redirect('main')
         else:
-            # Usuário ou senha inválidos, exibe mensagem de erro
-            return render(request, 'html/tela_login/login2.html', {'error': 'Usuário ou senha inválidos'})
+            print("Login failed: User or password incorrect")
+            messages.error(request, 'Usuário ou senha inválidos')
+            return render(request, 'html/tela_login/login2.html')
     else:
         return render(request, 'html/tela_login/login2.html')
 
@@ -74,7 +77,6 @@ def deletar_quadra(request, quadra_id):
 def forgot_pass(request):
     return render(request, 'html/esqueceu_a_senha/senha.html')
 
-@login_required
+#@login_required
 def main(request):
-    user = request.user
-    return render(request, 'html/tela_principal/inicial.html', {'user': user})
+    return render(request, 'html/tela_principal/inicial.html', {'user' : request.user})
