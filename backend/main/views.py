@@ -7,7 +7,7 @@ from .forms import PartidaForm
 #Listar uma partida
 def listar_partidas(request):
     partidas = Criar_Partida.objects.all() #consulta banco de dados
-    return render(request, '.../criar_time/lista_partidas', {'partidas': partidas})
+    return render(request, 'listar_partidas', {'partidas': partidas})
 
 #Criar uma partida
 def criar_partida(request):
@@ -19,4 +19,4 @@ def criar_partida(request):
     else:
         form = PartidaForm() #mostra um formulário vazio p/ usuário
 
-    return render(request, '.../criar_time/games.html', {'form': form})
+    return render(request, 'criar_time/games.html', {'form': form})
